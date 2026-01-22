@@ -1,15 +1,15 @@
 import React from "react"
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: 'Banana Editor - AI Image Editor',
-  description: 'Transform any image with simple text prompts. Advanced AI image editing with character consistency and scene preservation.',
+  title: 'Nano Banana - Free AI Image Editor | Edit Photos with Text',
+  description:
+    "Edit images with natural language using Nano Banana's advanced AI powered by Google DeepMind. Transform any photo with simple text prompts.",
   generator: 'v0.app',
   icons: {
     icon: [
@@ -37,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`font-sans antialiased`}>
+      <body className={`${inter.className} min-h-screen antialiased`}>
         {children}
         <Analytics />
       </body>

@@ -1,8 +1,4 @@
-"use client"
-
-import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
 import { Zap } from "lucide-react"
 
 const showcaseItems = [
@@ -36,66 +32,52 @@ export function ShowcaseSection() {
   return (
     <section id="showcase" className="relative py-20 px-4">
       <div className="max-w-6xl mx-auto">
-        {/* Section header */}
         <div className="text-center mb-14">
-          <span className="inline-block px-3 py-1 text-xs font-medium text-primary bg-primary/10 rounded-full mb-4">
-            Gallery
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <span className="section-badge">Gallery</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Lightning-Fast AI Creations
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            See what Banana Editor generates in milliseconds
+          <p className="text-white/70 max-w-xl mx-auto">
+            See what Nano Banana generates in milliseconds
           </p>
         </div>
 
-        {/* Showcase grid - 2x2 */}
         <div className="grid md:grid-cols-2 gap-5">
           {showcaseItems.map((item) => (
-            <Card 
+            <div
               key={item.title} 
-              className="bg-card border-border overflow-hidden group hover:border-primary/30 transition-all duration-300"
+              className="glass-card border border-white/10 rounded-xl overflow-hidden group hover:border-primary/30 transition-all duration-300"
             >
-              <CardContent className="p-0">
-                {/* Image */}
-                <div className="relative h-52 overflow-hidden">
-                  <img
-                    src={item.image || "/placeholder.svg"}
-                    alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <Badge className="absolute top-3 right-3 bg-card/90 text-foreground backdrop-blur-sm gap-1">
-                    <Zap className="w-3 h-3 text-primary" />
-                    {item.speed}
-                  </Badge>
-                </div>
-
-                {/* Content */}
-                <div className="p-5">
-                  <h3 className="font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    {item.description}
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+              <div className="relative h-52 overflow-hidden">
+                <img
+                  src={item.image || "/placeholder.svg"}
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <span className="absolute top-3 right-3 px-2 py-1 rounded-md bg-[rgba(20,20,25,0.9)] backdrop-blur-sm text-xs text-white flex items-center gap-1">
+                  <Zap className="w-3 h-3 text-primary" />
+                  {item.speed}
+                </span>
+              </div>
+              <div className="p-5">
+                <h3 className="font-semibold text-white mb-1 group-hover:text-primary transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-white/70">{item.description}</p>
+              </div>
+            </div>
           ))}
         </div>
 
-        {/* CTA */}
         <div className="mt-12 text-center">
-          <p className="text-muted-foreground mb-4">
-            Experience the power of Banana Editor yourself
+          <p className="text-white/70 mb-4">
+            Experience the power of Nano Banana yourself
           </p>
-          <Button 
-            size="lg" 
-            className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2"
-            onClick={() => document.getElementById("editor")?.scrollIntoView({ behavior: "smooth" })}
-          >
-            <span>&#127820;</span>
-            Try Banana Generator
+          <Button asChild size="lg" className="btn-primary px-6 py-3 rounded-lg text-sm">
+            <a href="#editor" className="inline-flex items-center gap-2">
+              <span>🍌</span>
+              Try Nano Banana Generator
+            </a>
           </Button>
         </div>
       </div>

@@ -1,5 +1,3 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Star, Quote } from "lucide-react"
 
 const testimonials = [
@@ -7,7 +5,7 @@ const testimonials = [
     name: "Sarah Chen",
     role: "Content Creator",
     handle: "@sarahcreates",
-    content: "Banana Editor has completely transformed my workflow. The character consistency is unmatched - I can create series with the same characters effortlessly!",
+    content: "Nano Banana has completely transformed my workflow. The character consistency is unmatched - I can create series with the same characters effortlessly!",
     avatar: "SC",
     rating: 5
   },
@@ -23,7 +21,7 @@ const testimonials = [
     name: "AI Studio Team",
     role: "Creative Agency",
     handle: "@aistudio",
-    content: "We've tried every AI tool out there. Banana Editor stands out for commercial work - the quality is consistently professional.",
+    content: "We've tried every AI tool out there. Nano Banana stands out for commercial work - the quality is consistently professional.",
     avatar: "AS",
     rating: 5
   },
@@ -47,7 +45,7 @@ const testimonials = [
     name: "Lisa Wong",
     role: "E-commerce Owner",
     handle: "@lisashop",
-    content: "Product photography costs dropped 80% since we started using Banana Editor. The results look professional and our conversion rates improved.",
+    content: "Product photography costs dropped 80% since we started using Nano Banana. The results look professional and our conversion rates improved.",
     avatar: "LW",
     rating: 5
   }
@@ -55,67 +53,46 @@ const testimonials = [
 
 export function TestimonialsSection() {
   return (
-    <section className="relative py-20 px-4">
+    <section id="testimonials" className="relative py-20 px-4">
       <div className="max-w-6xl mx-auto">
-        {/* Section header */}
         <div className="text-center mb-14">
-          <span className="inline-block px-3 py-1 text-xs font-medium text-primary bg-primary/10 rounded-full mb-4">
-            User Reviews
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <span className="section-badge">User Reviews</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Voices from Creators
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
+          <p className="text-white/70 max-w-xl mx-auto">
             Join thousands of satisfied creators who have transformed their workflow
           </p>
         </div>
 
-        {/* Testimonials grid - 3x2 */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {testimonials.map((testimonial) => (
-            <Card 
+            <div
               key={testimonial.name}
-              className="bg-card border-border hover:border-primary/30 transition-all duration-300"
+              className="glass-card border border-white/10 testimonial-card rounded-xl p-6 transition-all duration-300"
             >
-              <CardContent className="pt-6">
-                {/* Header with avatar */}
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex items-center gap-3">
-                    <Avatar className="w-10 h-10">
-                      <AvatarFallback className="bg-primary/20 text-primary text-sm font-semibold">
-                        {testimonial.avatar}
-                      </AvatarFallback>
-                    </Avatar>
-                    <div>
-                      <h4 className="font-semibold text-sm text-foreground">
-                        {testimonial.name}
-                      </h4>
-                      <p className="text-xs text-muted-foreground">
-                        {testimonial.role}
-                      </p>
-                    </div>
+              <div className="flex items-start justify-between mb-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-semibold text-sm">
+                    {testimonial.avatar}
                   </div>
-                  <Quote className="w-5 h-5 text-primary/30" />
+                  <div>
+                    <h4 className="font-semibold text-sm text-white">{testimonial.name}</h4>
+                    <p className="text-xs text-white/40">{testimonial.role}</p>
+                  </div>
                 </div>
+                <Quote className="w-5 h-5 text-primary/30" />
+              </div>
 
-                {/* Stars */}
-                <div className="flex gap-0.5 mb-3">
-                  {Array.from({ length: testimonial.rating }).map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                  ))}
-                </div>
+              <div className="flex gap-0.5 mb-3">
+                {Array.from({ length: testimonial.rating }).map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                ))}
+              </div>
 
-                {/* Quote */}
-                <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-                  {testimonial.content}
-                </p>
-
-                {/* Handle */}
-                <span className="text-xs text-primary">
-                  {testimonial.handle}
-                </span>
-              </CardContent>
-            </Card>
+              <p className="text-sm text-white/70 leading-relaxed mb-3">{testimonial.content}</p>
+              <span className="text-xs text-primary">{testimonial.handle}</span>
+            </div>
           ))}
         </div>
       </div>

@@ -1,4 +1,3 @@
-import { Card, CardContent } from "@/components/ui/card"
 import { 
   MessageSquare, 
   User, 
@@ -49,40 +48,30 @@ const features = [
 
 export function FeaturesSection() {
   return (
-    <section className="py-20 px-4">
+    <section id="features" className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
-        {/* Section header */}
         <div className="text-center mb-14">
-          <span className="inline-block px-3 py-1 text-xs font-medium text-primary bg-primary/10 rounded-full mb-4">
-            Core Features
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Why Choose Banana Editor?
+          <span className="section-badge">Core Features</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Why Choose Nano Banana?
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
+          <p className="text-white/70 max-w-xl mx-auto">
             Combining cutting-edge AI with intuitive controls for seamless image creation and editing.
           </p>
         </div>
 
-        {/* Features grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {features.map((feature) => (
-            <Card 
+            <div
               key={feature.title} 
-              className="bg-card border-border hover:border-primary/30 transition-all duration-300 group"
+              className="glass-card border border-white/10 rounded-xl p-6 hover:border-primary/30 transition-all duration-300"
             >
-              <CardContent className="pt-6">
-                <div className={`w-10 h-10 rounded-lg bg-secondary flex items-center justify-center mb-4 ${feature.color}`}>
-                  <feature.icon className="w-5 h-5" />
-                </div>
-                <h3 className="text-base font-semibold text-foreground mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {feature.description}
-                </p>
-              </CardContent>
-            </Card>
+              <div className={`w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4 ${feature.color}`}>
+                <feature.icon className="w-5 h-5" />
+              </div>
+              <h3 className="text-base font-semibold text-white mb-2">{feature.title}</h3>
+              <p className="text-sm text-white/70 leading-relaxed">{feature.description}</p>
+            </div>
           ))}
         </div>
       </div>
