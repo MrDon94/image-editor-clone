@@ -1,6 +1,5 @@
 ---
-name: product-requirements
-description: Interactive Product Owner skill for requirements gathering, analysis, and PRD generation. Triggers when users request product requirements, feature specification, PRD creation, or need help understanding and documenting project requirements. Uses quality scoring and iterative dialogue to ensure comprehensive requirements before generating professional PRD documents.
+description: 产品需求分析和PRD(产品需求文档)生成
 ---
 
 # Product Requirements Skill
