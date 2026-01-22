@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 import { Zap } from "lucide-react"
 
 const showcaseItems = [
@@ -49,10 +50,13 @@ export function ShowcaseSection() {
               className="glass-card border border-white/10 rounded-xl overflow-hidden group hover:border-primary/30 transition-all duration-300"
             >
               <div className="relative h-52 overflow-hidden">
-                <img
-                  src={item.image || "/placeholder.svg"}
+                <Image
+                  src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  fill
+                  unoptimized
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <span className="absolute top-3 right-3 px-2 py-1 rounded-md bg-[rgba(20,20,25,0.9)] backdrop-blur-sm text-xs text-white flex items-center gap-1">
                   <Zap className="w-3 h-3 text-primary" />
